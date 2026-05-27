@@ -7,6 +7,8 @@ export default function Dashboard() {
 
   const criticos = regioes.filter((r) => r.alerta === 'Crítico').length;
   const altos = regioes.filter((r) => r.alerta === 'Alto').length;
+  const moderados = regioes.filter((r) => r.alerta === 'Moderado').length;
+  const baixos = regioes.filter((r) => r.alerta === 'Baixo').length;
 
   const mediaTemp = (
     regioes.reduce((total, r) => total + r.temperatura, 0) / regioes.length
@@ -16,7 +18,7 @@ export default function Dashboard() {
     <ScrollView style={styles.container}>
       <Text style={styles.logo}>NextSpace</Text>
       <Text style={styles.subtitle}>
-        Dashboard espacial para prevenção de desastres naturais
+        Monitoramento climático com dados espaciais simulados
       </Text>
 
       <View style={styles.grid}>
@@ -27,16 +29,52 @@ export default function Dashboard() {
       </View>
 
       <View style={styles.panel}>
+        <Text style={styles.panelTitle}>Distribuição de alertas</Text>
+
+        <View style={styles.barItem}>
+          <Text style={styles.label}>Crítico</Text>
+          <View style={styles.barBg}>
+            <View style={[styles.bar, { width: `${criticos * 25}%`, backgroundColor: '#FF3B3B' }]} />
+          </View>
+          <Text style={styles.number}>{criticos}</Text>
+        </View>
+
+        <View style={styles.barItem}>
+          <Text style={styles.label}>Alto</Text>
+          <View style={styles.barBg}>
+            <View style={[styles.bar, { width: `${altos * 25}%`, backgroundColor: '#FF8C42' }]} />
+          </View>
+          <Text style={styles.number}>{altos}</Text>
+        </View>
+
+        <View style={styles.barItem}>
+          <Text style={styles.label}>Moderado</Text>
+          <View style={styles.barBg}>
+            <View style={[styles.bar, { width: `${moderados * 25}%`, backgroundColor: '#FFD447' }]} />
+          </View>
+          <Text style={styles.number}>{moderados}</Text>
+        </View>
+
+        <View style={styles.barItem}>
+          <Text style={styles.label}>Baixo</Text>
+          <View style={styles.barBg}>
+            <View style={[styles.bar, { width: `${baixos * 25}%`, backgroundColor: '#35D07F' }]} />
+          </View>
+          <Text style={styles.number}>{baixos}</Text>
+        </View>
+      </View>
+
+      <View style={styles.panel}>
         <Text style={styles.panelTitle}>Resumo da missão</Text>
         <Text style={styles.text}>
-          O NextSpace simula dados climáticos inspirados em satélites para
-          monitorar regiões vulneráveis a enchentes, calor extremo e riscos ambientais.
+          O NextSpace simula o uso de satélites para identificar riscos de enchentes,
+          calor extremo e desastres ambientais em regiões monitoradas.
         </Text>
       </View>
 
       <View style={styles.panel}>
-        <Text style={styles.panelTitle}>Histórico salvo</Text>
-        <Text style={styles.text}>{historico.length} alertas gerados no dispositivo.</Text>
+        <Text style={styles.panelTitle}>Histórico local</Text>
+        <Text style={styles.text}>{historico.length} alertas salvos no dispositivo.</Text>
       </View>
     </ScrollView>
   );
@@ -76,10 +114,32 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 14,
   },
   text: {
     color: '#AAB3D6',
     lineHeight: 22,
+  },
+  barItem: {
+    marginBottom: 12,
+  },
+  label: {
+    color: '#AAB3D6',
+    marginBottom: 6,
+  },
+  barBg: {
+    height: 10,
+    backgroundColor: '#252C4A',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  bar: {
+    height: 10,
+    borderRadius: 10,
+  },
+  number: {
+    color: '#FFFFFF',
+    marginTop: 4,
+    fontWeight: 'bold',
   },
 });
