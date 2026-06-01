@@ -146,44 +146,6 @@ npx expo start
 
 ---
 
-# 📊 Requisitos da GS Implementados
-
-## ✅ Expo Router
-Navegação estruturada entre telas.
-
-## ✅ useState / useEffect
-Gerenciamento de estados e efeitos colaterais.
-
-## ✅ Context API
-Compartilhamento global de dados do sistema.
-
-## ✅ AsyncStorage
-Persistência local de histórico.
-
-## ✅ Formulários
-Tela de simulação com validação.
-
-## ✅ Dashboards
-Painéis de monitoramento climático.
-
-## ✅ Componentização
-Componentes reutilizáveis e organizados.
-
-## ✅ Estilização
-Interface moderna com identidade espacial.
-
----
-
-# 🌱 ODS Relacionados
-
-## ODS 11
-Cidades e comunidades sustentáveis.
-
-## ODS 13
-Ação contra a mudança global do clima.
-
----
-
 # 👨‍💻 Integrantes
 
 - Andre Luiz Fernandes de Queiroz | RM: 554503
